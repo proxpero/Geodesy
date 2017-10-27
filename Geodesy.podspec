@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      		= "1.0"
   s.summary      		= "A Swift implementation of the geohash algorithm."
   s.homepage    		= "https://github.com/proxpero/Geodesy"
-  s.license			= { :type => "MIT", :file => "LICENSE"}
+  s.license			= { :type => "MIT", :file => "LICENSE.md"}
   s.author       		= "Todd Olsen"
   s.social_media_url   		= "http://twitter.com/proxpero"
   s.ios.deployment_target	= "9.0"
