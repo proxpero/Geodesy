@@ -1,16 +1,7 @@
 language: swift
-
+osx_image: xcode9
 xcode_project: Geodesy.xcodeproj
 xcode_scheme: "Geodesy iOS"
-osx_image: xcode9
 xcode_sdk: iphonesimulator11.0
-
-script:
-  - xcodebuild: test
-
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-
-branches:
-  only:
-    - master
