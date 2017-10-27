@@ -56,7 +56,7 @@
 
 /* Begin PBXFileReference section */
 		521F61851FA2C1E600607A1D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		521F61861FA2C35600607A1D /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		521F61861FA2C35600607A1D /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		52AE149B1FA21AFE007D9E40 /* Geodesy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Geodesy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52AE14A41FA21AFE007D9E40 /* GeodesyTests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GeodesyTests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52AE14A91FA21AFE007D9E40 /* GeodesyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeodesyTests.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 				521F61851FA2C1E600607A1D /* README.md */,
 				52AE14DB1FA21C94007D9E40 /* Geodesy.h */,
 				52AE14DA1FA21C94007D9E40 /* Info.plist */,
-				521F61861FA2C35600607A1D /* LICENSE */,
+				521F61861FA2C35600607A1D /* LICENSE.txt */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
