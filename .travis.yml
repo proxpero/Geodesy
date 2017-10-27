@@ -6,9 +6,7 @@ osx_image: xcode9
 xcode_sdk: iphonesimulator11.0
 
 script:
-  - xcodebuild: clean
-  - destination: 'platform=iOS Simulator,name=iPhone 8,OS=11'
-  - xcode_sdk: iphonesimulator
+  - xcodebuild: test
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
