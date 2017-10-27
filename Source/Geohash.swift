@@ -1,10 +1,12 @@
+public let defaultPrecision = 9
+
 public enum Geohash {
 
-    public static func encode(latitude: Double, longitude: Double, precision: Int = 8) -> String {
+    public static func encode(latitude: Double, longitude: Double, precision: Int = defaultPrecision) -> String {
         return Region(latitude: latitude, longitude: longitude, precision: precision).hash
     }
 
-    public static func encode(latitude: Double, longitude: Double, precision: Precision) -> String {
+    public static func encode(latitude: Double, longitude: Double, precision: Precision = Precision(rawValue: defaultPrecision)!) -> String {
         return Geohash.encode(latitude: latitude, longitude: longitude, precision: precision.rawValue)
     }
 
@@ -23,34 +25,34 @@ extension Geohash {
         case twentyFiveHundredKilometers = 1
 
         /// ±630 km
-        case sixHundredThirtyKilometers
+        case sixHundredThirtyKilometers = 2
 
         /// ±78 km
-        case seventyEightKilometers
+        case seventyEightKilometers = 3
 
         /// ±20 km
-        case twentyKilometers
+        case twentyKilometers = 4
 
         /// ±2.4 km, ±2400 m
-        case twentyFourHundredMeters
+        case twentyFourHundredMeters = 5
 
         /// ±0.61 km, ±610 m
-        case sixHundredTenMeters
+        case sixHundredTenMeters = 6
 
         /// ±0.076 km, ±76 m
-        case seventySixMeters
+        case seventySixMeters = 7
 
         /// ±0.019 km, ±19 m
-        case nineteenMeters
+        case nineteenMeters = 8
 
         /// ±0.0024 km, ±2.4 m, ±240 cm
-        case twoHundredFortyCentimeters
+        case twoHundredFortyCentimeters = 9
 
         /// ±0.00060 km, ±0.6 m, ±60 cm
-        case sixtyCentimeters
+        case sixtyCentimeters = 10
 
         /// ±0.000074 km, ±0.07 m, ±7.4 cm, ±74 mm
-        case seventyFourMillimeters
+        case seventyFourMillimeters = 11
 
         var margin: Double {
             switch self {

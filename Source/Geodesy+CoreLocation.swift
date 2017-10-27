@@ -4,19 +4,35 @@
 
     extension Geohash {
 
-        public static func encode(coordinate: CLLocationCoordinate2D, precision: Int = 8) -> String {
-            return Region(latitude: coordinate.latitude, longitude: coordinate.longitude, precision: precision).hash
+        public static func region(for coordinate: CLLocationCoordinate2D, precision: Int = defaultPrecision) -> Region {
+            return Region(latitude: coordinate.latitude, longitude: coordinate.longitude, precision: precision)
         }
 
-        public static func encode(coordinate: CLLocationCoordinate2D, precision: Precision) -> String {
-            return Region(latitude: coordinate.latitude, longitude: coordinate.longitude, precision: precision.rawValue).hash
+        public static func region(for coordinate: CLLocationCoordinate2D, precision: Precision = Precision(rawValue: defaultPrecision)!) -> Region {
+            return Region(latitude: coordinate.latitude, longitude: coordinate.longitude, precision: precision.rawValue)
         }
 
-        public static func encode(location: CLLocation, precision: Int = 8) -> String {
+        public static func region(for location: CLLocation, precision: Int = defaultPrecision) -> Region {
+            return region(for: location.coordinate, precision: precision)
+        }
+
+        public static func region(for location: CLLocation, precision: Precision = Precision(rawValue: defaultPrecision)!) -> Region {
+            return region(for: location.coordinate, precision: precision.rawValue)
+        }
+
+        public static func encode(coordinate: CLLocationCoordinate2D, precision: Int = defaultPrecision) -> String {
+            return region(for: coordinate, precision: precision).hash
+        }
+
+        public static func encode(coordinate: CLLocationCoordinate2D, precision: Precision = Precision(rawValue: defaultPrecision)!) -> String {
+            return region(for: coordinate, precision: precision.rawValue).hash
+        }
+
+        public static func encode(location: CLLocation, precision: Int = defaultPrecision) -> String {
             return Geohash.encode(coordinate: location.coordinate, precision: precision)
         }
 
-        public static func encode(location: CLLocation, precision: Precision) -> String {
+        public static func encode(location: CLLocation, precision: Precision = Precision(rawValue: defaultPrecision)!) -> String {
             return Geohash.encode(coordinate: location.coordinate, precision: precision.rawValue)
         }
 
@@ -33,11 +49,11 @@
             self = CLLocationCoordinate2DMake(lat, lng)
         }
 
-        public func geohash(precision: Int = 8) -> String {
+        public func geohash(precision: Int = defaultPrecision) -> String {
             return Geohash.encode(coordinate: self, precision: precision)
         }
 
-        public func geohash(precision: Geohash.Precision) -> String {
+        public func geohash(precision: Geohash.Precision = Geohash.Precision(rawValue: defaultPrecision)!) -> String {
             return Geohash.encode(latitude: latitude, longitude: longitude, precision: precision)
         }
 
@@ -50,8 +66,21 @@
             self.init(latitude: region.center.latitude, longitude: region.center.longitude)
         }
 
-        public var geohash: String {
-            return Geohash.encode(location: self)
+        public func geohash(precision: Int = defaultPrecision) -> String {
+            return Geohash.encode(location: self, precision: precision)
+        }
+
+        public func geohash(precision: Geohash.Precision = Geohash.Precision(rawValue: defaultPrecision)!) -> String {
+            return geohash(precision: precision.rawValue)
+        }
+
+        /// Geohash neighbors
+        public func neighbors(precision: Int = defaultPrecision) -> [String] {
+            return Geohash.region(for: self, precision: precision).neighbors().map { $0.hash }
+        }
+
+        public func neighbors(precision: Geohash.Precision = Geohash.Precision(rawValue: defaultPrecision)!) -> [String] {
+            return neighbors(precision: precision.rawValue)
         }
 
     }
