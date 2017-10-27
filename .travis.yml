@@ -1,32 +1,15 @@
 language: swift
 
-osx_image: xcode9
 xcode_project: Geodesy.xcodeproj
+xcode_scheme: "Geodesy iOS"
+osx_image: xcode9
+xcode_sdk: iphonesimulator11.0
 
-env:
-  global:
-    - LC_CTYPE=en_US.UTF-8
-    - LANG=en_US.UTF-8
-    - PROJECT=Geodesy.xcodeproj
-    - IOS_FRAMEWORK_SCHEME="Geodesy iOS"
-    - MACOS_FRAMEWORK_SCHEME="Geodesy OSX"
-    - IOS_SDK=iphonesimulator11.0
-    - MACOS_SDK=macosx10.13
-  matrix:
-    - DESTINATION="OS=11.0,name=iPhone 8" SCHEME="$IOS_FRAMEWORK_SCHEME" SDK="$IOS_SDK" RUN_TESTS="YES"
-    - DESTINATION="arch=x86_64" SCHEME="$MACOS_FRAMEWORK_SCHEME" SDK=macosx10.13 RUN_TESTS="NO"
-before_install:
-  - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
 script:
-  - set -o pipefail
-  - xcodebuild -version
-  - xcodebuild -showsdks
+  - xcodebuild: clean
+  - destination: 'platform=iOS Simulator,name=iPhone 8,OS=11'
+  - xcode_sdk: iphonesimulator
 
-  - if [ $RUN_TESTS == "YES" ]; then
-      xcodebuild -project "$PROJECT" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
-    else
-      xcodebuild -project "$PROJECT" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty;
-    fi
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
