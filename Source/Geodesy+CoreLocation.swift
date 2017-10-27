@@ -8,7 +8,7 @@
             return Region(latitude: coordinate.latitude, longitude: coordinate.longitude, precision: precision)
         }
 
-        public static func region(for coordinate: CLLocationCoordinate2D, precision: Precision = Precision(rawValue: defaultPrecision)!) -> Region {
+        public static func region(for coordinate: CLLocationCoordinate2D, precision: Precision) -> Region {
             return Region(latitude: coordinate.latitude, longitude: coordinate.longitude, precision: precision.rawValue)
         }
 
@@ -16,7 +16,7 @@
             return region(for: location.coordinate, precision: precision)
         }
 
-        public static func region(for location: CLLocation, precision: Precision = Precision(rawValue: defaultPrecision)!) -> Region {
+        public static func region(for location: CLLocation, precision: Precision) -> Region {
             return region(for: location.coordinate, precision: precision.rawValue)
         }
 
@@ -24,7 +24,7 @@
             return region(for: coordinate, precision: precision).hash
         }
 
-        public static func encode(coordinate: CLLocationCoordinate2D, precision: Precision = Precision(rawValue: defaultPrecision)!) -> String {
+        public static func encode(coordinate: CLLocationCoordinate2D, precision: Precision) -> String {
             return region(for: coordinate, precision: precision.rawValue).hash
         }
 
@@ -32,7 +32,7 @@
             return Geohash.encode(coordinate: location.coordinate, precision: precision)
         }
 
-        public static func encode(location: CLLocation, precision: Precision = Precision(rawValue: defaultPrecision)!) -> String {
+        public static func encode(location: CLLocation, precision: Precision) -> String {
             return Geohash.encode(coordinate: location.coordinate, precision: precision.rawValue)
         }
 
@@ -53,7 +53,7 @@
             return Geohash.encode(coordinate: self, precision: precision)
         }
 
-        public func geohash(precision: Geohash.Precision = Geohash.Precision(rawValue: defaultPrecision)!) -> String {
+        public func geohash(precision: Precision) -> String {
             return Geohash.encode(latitude: latitude, longitude: longitude, precision: precision)
         }
 
@@ -70,7 +70,7 @@
             return Geohash.encode(location: self, precision: precision)
         }
 
-        public func geohash(precision: Geohash.Precision = Geohash.Precision(rawValue: defaultPrecision)!) -> String {
+        public func geohash(precision: Precision) -> String {
             return geohash(precision: precision.rawValue)
         }
 
@@ -79,7 +79,7 @@
             return Geohash.region(for: self, precision: precision).neighbors().map { $0.hash }
         }
 
-        public func neighbors(precision: Geohash.Precision = Geohash.Precision(rawValue: defaultPrecision)!) -> [String] {
+        public func neighbors(precision: Precision) -> [String] {
             return neighbors(precision: precision.rawValue)
         }
 

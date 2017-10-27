@@ -34,12 +34,13 @@ class GeodesyTests: XCTestCase {
 
     func testCLCoordinates() {
 
-        let precision: Geohash.Precision = .twoHundredFortyCentimeters
+        let precision: Precision = .twoHundredFortyCentimeters
 
         func runTestCase(coord: CLLocationCoordinate2D, hash: String) {
             let region = Geohash.encode(coordinate: coord, precision: precision)
             XCTAssertEqual(region, hash)
         }
+
         [
             (CLLocationCoordinate2D(latitude:  40.77955232064873,  longitude: -73.9636630564928),   "dr5ruztq1"),
             (CLLocationCoordinate2D(latitude:  37.9715286848901,   longitude:  23.726720362901688), "swbb5bt20"),
@@ -59,6 +60,7 @@ class GeodesyTests: XCTestCase {
             let region = Geohash.decode(geohash: testCase.center)!
             XCTAssertEqual(region.neighbors().map { $0.hash }, testCase.neighbors)
         }
+
         [
             TestCase(center: "ezs42", neighbors: ["ezs48", "ezs49", "ezs43", "ezs41", "ezs40", "ezefp", "ezefr", "ezefx"]),
             TestCase(center: "u000", neighbors: ["u001", "u003", "u002", "spbr", "spbp", "ezzz", "gbpb", "gbpc"]),
@@ -98,6 +100,7 @@ class GeodesyTests: XCTestCase {
     }
 
     func testNorth() {
+        
         func runTest(center: String, neighbor: String) {
             let precision = center.characters.count
             let region = Geohash.decode(geohash: center)!
@@ -105,6 +108,7 @@ class GeodesyTests: XCTestCase {
             let hash = north.hash
             XCTAssertEqual(hash, neighbor)
         }
+
         [
             ("b", "u"),
             ("c", "v"),
@@ -127,6 +131,7 @@ class GeodesyTests: XCTestCase {
     }
 
     func testSouth() {
+
         func runTest(center: String, neighbor: String) {
             let precision = center.characters.count
             let region = Geohash.decode(geohash: center)!
@@ -134,6 +139,7 @@ class GeodesyTests: XCTestCase {
             let hash = south.hash
             XCTAssertEqual(hash, neighbor)
         }
+
         [
             ("p", "5"),
             ("0", "h"),
@@ -155,6 +161,7 @@ class GeodesyTests: XCTestCase {
     }
 
     func testEast() {
+
         func runTest(center: String, neighbor: String) {
             let precision = center.characters.count
             let region = Geohash.decode(geohash: center)!
@@ -162,6 +169,7 @@ class GeodesyTests: XCTestCase {
             let hash = east.hash
             XCTAssertEqual(hash, neighbor)
         }
+
         [
             ("r", "2"),
             ("2", "3"),
@@ -183,6 +191,7 @@ class GeodesyTests: XCTestCase {
     }
 
     func testWest() {
+
         func runTest(center: String, neighbor: String) {
             let precision = center.characters.count
             let region = Geohash.decode(geohash: center)!
@@ -190,6 +199,7 @@ class GeodesyTests: XCTestCase {
             let hash = west.hash
             XCTAssertEqual(hash, neighbor)
         }
+
         [
             ("r", "q"),
             ("2", "r"),
@@ -211,6 +221,7 @@ class GeodesyTests: XCTestCase {
     }
 
     func testNortheast() {
+
         func runTest(center: String, neighbor: String) {
             let precision = center.characters.count
             let region = Geohash.decode(geohash: center)!
@@ -218,6 +229,7 @@ class GeodesyTests: XCTestCase {
             let hash = northeast.hash
             XCTAssertEqual(hash, neighbor)
         }
+
         [
             ("f", "z"),
             ("c", "y"),
@@ -239,6 +251,7 @@ class GeodesyTests: XCTestCase {
     }
 
     func testSoutheast() {
+
         func runTest(center: String, neighbor: String) {
             let precision = center.characters.count
             let region = Geohash.decode(geohash: center)!
@@ -246,6 +259,7 @@ class GeodesyTests: XCTestCase {
             let hash = southeast.hash
             XCTAssertEqual(hash, neighbor)
         }
+
         [
             ("p", "h"),
             ("0", "j"),
@@ -267,6 +281,7 @@ class GeodesyTests: XCTestCase {
     }
 
     func testSouthwest() {
+
         func runTest(center: String, neighbor: String) {
             let precision = center.characters.count
             let region = Geohash.decode(geohash: center)!
@@ -274,6 +289,7 @@ class GeodesyTests: XCTestCase {
             let hash = southwest.hash
             XCTAssertEqual(hash, neighbor)
         }
+
         [
             ("0", "5"),
             ("1", "h"),
@@ -295,6 +311,7 @@ class GeodesyTests: XCTestCase {
     }
 
     func testNorthwest() {
+
         func runTest(center: String, neighbor: String) {
             let precision = center.characters.count
             let region = Geohash.decode(geohash: center)!
@@ -302,6 +319,7 @@ class GeodesyTests: XCTestCase {
             let hash = northwest.hash
             XCTAssertEqual(hash, neighbor)
         }
+
         [
             ("u", "z"),
 //            ("v", "b"), // g nw b -> z
