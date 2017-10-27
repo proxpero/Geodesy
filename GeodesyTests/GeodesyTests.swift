@@ -1,37 +1,50 @@
 import XCTest
- @testable import Geodesy
+import CoreLocation
+@testable import Geodesy
 
 class GeodesyTests: XCTestCase {
 
-    func testHashes() {
-
-        let degreesPerMeterAtZeroLatitude = 1/110574.27
+    func testEncodeDecode() {
 
         struct TestCase {
             let lat: Double
             let lng: Double
             let hash: String
-            var precision: Geohash.Precision {
-                return Geohash.Precision.init(rawValue: hash.characters.count)!
+            var precision: Int {
+                return hash.characters.count
             }
         }
 
         func runTestCase(_ testCase: TestCase) {
-            let accuracy = testCase.precision.margin * 2.0 * degreesPerMeterAtZeroLatitude
             let result = Geohash.encode(latitude: testCase.lat, longitude: testCase.lng, precision: testCase.precision)
             let reverse = Geohash.decode(geohash: result)
-
             XCTAssertEqual(testCase.hash, result)
             XCTAssertNotNil(reverse)
-            XCTAssertEqual(reverse!.center.latitude, testCase.lat, accuracy: accuracy)
-            XCTAssertEqual(reverse!.center.longitude, testCase.lng, accuracy: accuracy)
+            XCTAssertEqual(reverse!.center.latitude, testCase.lat, accuracy: 0.00005)
+            XCTAssertEqual(reverse!.center.longitude, testCase.lng, accuracy: 0.00005)
         }
 
         [                                                                                     // these values come from http://geohash.com
             TestCase(lat:  40.77955232064873,  lng: -73.9636630564928,   hash: "dr5ruztq1"),  // Metropolitan Museum of Art, New York
             TestCase(lat:  37.9715286848901,   lng:  23.726720362901688, hash: "swbb5bt20"),  // Acropolis of Athens
-            TestCase(lat: -77.84210082417549,  lng: 166.68628692626953,  hash: "pdnt1j32bh"), // McMurdo Station, Antarctica
+            TestCase(lat: -77.84210082417549,  lng: 166.68628692626953,  hash: "pdnt1j32b"),  // McMurdo Station, Antarctica
             TestCase(lat: -20.395640574216085, lng:  57.4394416809082,   hash: "mk2ggp44u")   // Black River Gorges National Park
+        ].forEach(runTestCase)
+    }
+
+    func testCLCoordinates() {
+
+        let precision: Geohash.Precision = .twoHundredFortyCentimeters
+
+        func runTestCase(coord: CLLocationCoordinate2D, hash: String) {
+            let region = Geohash.encode(coordinate: coord, precision: precision)
+            XCTAssertEqual(region, hash)
+        }
+        [
+            (CLLocationCoordinate2D(latitude:  40.77955232064873,  longitude: -73.9636630564928),   "dr5ruztq1"),
+            (CLLocationCoordinate2D(latitude:  37.9715286848901,   longitude:  23.726720362901688), "swbb5bt20"),
+            (CLLocationCoordinate2D(latitude: -77.84210082417549,  longitude: 166.68628692626953),  "pdnt1j32b"),
+            (CLLocationCoordinate2D(latitude: -20.395640574216085, longitude:  57.4394416809082),   "mk2ggp44u")
         ].forEach(runTestCase)
     }
 
