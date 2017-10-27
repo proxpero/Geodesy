@@ -23,6 +23,7 @@
     }
 
     extension CLLocationCoordinate2D {
+
         public init(geohash: String) {
             guard let region = Geohash.decode(geohash: geohash) else {
                 self = kCLLocationCoordinate2DInvalid
@@ -43,10 +44,16 @@
     }
 
     extension CLLocation {
+
         public convenience init?(geohash: String) {
             guard let region = Geohash.decode(geohash: geohash) else { return nil }
             self.init(latitude: region.center.latitude, longitude: region.center.longitude)
         }
+
+        public var geohash: String {
+            return Geohash.encode(location: self)
+        }
+
     }
 
 #endif
