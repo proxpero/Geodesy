@@ -1,4 +1,26 @@
 # Geodesy
 ![](https://travis-ci.org/proxpero/Geodesy.svg?branch=master)
-[![Version](https://img.shields.io/github/release/proxpero/Geodesy.svg)](https://github.com/proxpero/Geodesy/releases)
-A Swift implementation of the geohash algorithm.
+[![codecov](https://codecov.io/gh/Geodesy/Geodesy/branch/master/graph/badge.svg)](https://codecov.io/gh/Geodesy)
+<a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/License-MIT-red.svg" alt="MIT">
+</a>
+<a href="https://cocoapods.org/">
+    <img src="https://cocoapod-badges.herokuapp.com/v/Geodesy/badge.png" alt="CocoaPods">
+</a>
+<a href="https://swift.org">
+    <img src="https://img.shields.io/badge/Swift-4-orange.svg" alt="Swift" />
+</a>
+
+### A Swift implementation of the [geohash][1] algorithm.
+
+Geodesy comes from the ancient Greek word [γεωδαισία][2] which dividing the earth. This is basically what the geohash algorithm does. The hash is just a string of characters, the first divides the earth into 32 separate regions, measured precisely along lines of latitude and longitude. Then next character subdivides a region further into 32 subsections. On and on it goes, each added character more precisely specifying a location on the globe. Nice!
+
+The beauty of the algorithm really shines when you want to search a set of locations for the ones near a given location. Instead of running some complicated trigonometry on all the points, you can simply compare geohashes. The nearest points will be the ones who share the longest prefix with the given point's geohash.
+
+    let currentLocation = user.location.geohash()
+    let nearby = db.hotspots.where("geohash", beginsWith: currentLocation.prefix(8))
+
+Violá. A hash length 8 characters long defines a square roughly 38 meters per side.
+
+[1]:[https://en.m.wikipedia.org/wiki/Geohash]
+[2]:[http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.04.0057%3Aalphabetic+letter%3D*g%3Aentry+group%3D14%3Aentry%3Dgewdaisi%2Fa]
