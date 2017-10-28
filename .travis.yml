@@ -4,6 +4,7 @@ xcode_project: Geodesy.xcodeproj
 xcode_scheme: "Geodesy iOS"
 xcode_sdk: iphonesimulator11.0
 script:
-  - xctool -project Geodesy.xcodeproj -scheme "Geodesy iOS" build test -sdk iphonesimulator GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
+  - GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES
+  - GCC_GENERATE_TEST_COVERAGE_FILES=YES
 after_success:
   - bash <(curl -s https://codecov.io/bash)
