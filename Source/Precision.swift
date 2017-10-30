@@ -1,21 +1,5 @@
 public let defaultPrecision = 9
 
-public enum Geohash {
-
-    public static func encode(latitude: Double, longitude: Double, precision: Int = defaultPrecision) -> String {
-        return Region(latitude: latitude, longitude: longitude, precision: precision).hash
-    }
-
-    public static func encode(latitude: Double, longitude: Double, precision: Precision) -> String {
-        return Geohash.encode(latitude: latitude, longitude: longitude, precision: precision.rawValue)
-    }
-
-    public static func decode(geohash: String) -> Region? {
-        guard let region = Region(hash: geohash) else { return nil }
-        return region
-    }
-}
-
 public enum Precision: Int {
 
     /// ±2500 km

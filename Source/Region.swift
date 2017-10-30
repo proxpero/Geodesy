@@ -16,7 +16,7 @@ extension Region {
         return (vertical.distance, horizontal.distance)
     }
 
-    init(latitude: Double, longitude: Double, precision: Int) {
+    public init(latitude: Double, longitude: Double, precision: Int) {
 
         var lat = Span.latitude
         var lng = Span.longitude
@@ -24,12 +24,12 @@ extension Region {
         var hash: Array<Character> = []
 
         var parity = Parity.lng
-        var bit32 = 0
+        var char = 0
         var count = 0
 
         func inc() {
             let mask = 0b10000 >> count
-            bit32 |= mask
+            char |= mask
         }
 
         func compare(span: Span, source: Double) -> Span {
@@ -48,9 +48,9 @@ extension Region {
             parity.flip()
             count += 1
             if count == 5 {
-                hash.append(charmap[bit32])
+                hash.append(charmap[char])
                 count = 0
-                bit32 = 0
+                char = 0
             }
 
         } while hash.count < precision
@@ -62,7 +62,7 @@ extension Region {
 
     }
 
-    init?(hash: String) {
+    public init?(hash: String) {
 
         var lat = Span.latitude
         var lng = Span.longitude

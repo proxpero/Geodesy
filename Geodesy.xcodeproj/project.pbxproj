@@ -13,10 +13,10 @@
 		52AE14E51FA21CDC007D9E40 /* Geodesy.h in Headers */ = {isa = PBXBuildFile; fileRef = 52AE14DB1FA21C94007D9E40 /* Geodesy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		52AE14E61FA21CDC007D9E40 /* Geodesy.h in Headers */ = {isa = PBXBuildFile; fileRef = 52AE14DB1FA21C94007D9E40 /* Geodesy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		52AE14E71FA21CDD007D9E40 /* Geodesy.h in Headers */ = {isa = PBXBuildFile; fileRef = 52AE14DB1FA21C94007D9E40 /* Geodesy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		52F8C7CF1FA22AFA002E75AC /* Geohash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F8C7CE1FA22AFA002E75AC /* Geohash.swift */; };
-		52F8C7D01FA22AFA002E75AC /* Geohash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F8C7CE1FA22AFA002E75AC /* Geohash.swift */; };
-		52F8C7D11FA22AFA002E75AC /* Geohash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F8C7CE1FA22AFA002E75AC /* Geohash.swift */; };
-		52F8C7D21FA22AFA002E75AC /* Geohash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F8C7CE1FA22AFA002E75AC /* Geohash.swift */; };
+		52F8C7CF1FA22AFA002E75AC /* Precision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F8C7CE1FA22AFA002E75AC /* Precision.swift */; };
+		52F8C7D01FA22AFA002E75AC /* Precision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F8C7CE1FA22AFA002E75AC /* Precision.swift */; };
+		52F8C7D11FA22AFA002E75AC /* Precision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F8C7CE1FA22AFA002E75AC /* Precision.swift */; };
+		52F8C7D21FA22AFA002E75AC /* Precision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F8C7CE1FA22AFA002E75AC /* Precision.swift */; };
 		52F8C7D41FA22B34002E75AC /* Span.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F8C7D31FA22B34002E75AC /* Span.swift */; };
 		52F8C7D51FA22B34002E75AC /* Span.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F8C7D31FA22B34002E75AC /* Span.swift */; };
 		52F8C7D61FA22B34002E75AC /* Span.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F8C7D31FA22B34002E75AC /* Span.swift */; };
@@ -65,7 +65,7 @@
 		52AE14D21FA21BAA007D9E40 /* Geodesy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Geodesy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52AE14DA1FA21C94007D9E40 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52AE14DB1FA21C94007D9E40 /* Geodesy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geodesy.h; sourceTree = "<group>"; };
-		52F8C7CE1FA22AFA002E75AC /* Geohash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geohash.swift; sourceTree = "<group>"; };
+		52F8C7CE1FA22AFA002E75AC /* Precision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Precision.swift; sourceTree = "<group>"; };
 		52F8C7D31FA22B34002E75AC /* Span.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Span.swift; sourceTree = "<group>"; };
 		52F8C7D81FA22B3E002E75AC /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		52F8C7DD1FA22BD3002E75AC /* Geodesy+CoreLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Geodesy+CoreLocation.swift"; sourceTree = "<group>"; };
@@ -160,7 +160,7 @@
 		52AE149D1FA21AFE007D9E40 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				52F8C7CE1FA22AFA002E75AC /* Geohash.swift */,
+				52F8C7CE1FA22AFA002E75AC /* Precision.swift */,
 				52F8C7D31FA22B34002E75AC /* Span.swift */,
 				52F8C7D81FA22B3E002E75AC /* Region.swift */,
 				52F8C7DD1FA22BD3002E75AC /* Geodesy+CoreLocation.swift */,
@@ -435,7 +435,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52F8C7D91FA22B3E002E75AC /* Region.swift in Sources */,
-				52F8C7CF1FA22AFA002E75AC /* Geohash.swift in Sources */,
+				52F8C7CF1FA22AFA002E75AC /* Precision.swift in Sources */,
 				52F8C7DE1FA22BD3002E75AC /* Geodesy+CoreLocation.swift in Sources */,
 				52F8C7D41FA22B34002E75AC /* Span.swift in Sources */,
 			);
@@ -454,7 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52F8C7DA1FA22B3E002E75AC /* Region.swift in Sources */,
-				52F8C7D01FA22AFA002E75AC /* Geohash.swift in Sources */,
+				52F8C7D01FA22AFA002E75AC /* Precision.swift in Sources */,
 				52F8C7DF1FA22BD3002E75AC /* Geodesy+CoreLocation.swift in Sources */,
 				52F8C7D51FA22B34002E75AC /* Span.swift in Sources */,
 			);
@@ -465,7 +465,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52F8C7DB1FA22B3E002E75AC /* Region.swift in Sources */,
-				52F8C7D11FA22AFA002E75AC /* Geohash.swift in Sources */,
+				52F8C7D11FA22AFA002E75AC /* Precision.swift in Sources */,
 				52F8C7E01FA22BD3002E75AC /* Geodesy+CoreLocation.swift in Sources */,
 				52F8C7D61FA22B34002E75AC /* Span.swift in Sources */,
 			);
@@ -476,7 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52F8C7DC1FA22B3E002E75AC /* Region.swift in Sources */,
-				52F8C7D21FA22AFA002E75AC /* Geohash.swift in Sources */,
+				52F8C7D21FA22AFA002E75AC /* Precision.swift in Sources */,
 				52F8C7E11FA22BD3002E75AC /* Geodesy+CoreLocation.swift in Sources */,
 				52F8C7D71FA22B34002E75AC /* Span.swift in Sources */,
 			);
