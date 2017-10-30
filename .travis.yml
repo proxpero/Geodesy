@@ -2,10 +2,6 @@ language: swift
 osx_image: xcode9
 xcode_project: Geodesy.xcodeproj
 xcode_scheme: "Geodesy iOS"
-//xcode_sdk: iphonesimulator11.0
-script:
-  - xcodebuild -scheme "Geodesy iOS" -workspace Geodesy.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6S,OS=9.1' build test
-//  - GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES
-//  - GCC_GENERATE_TEST_COVERAGE_FILES=YES
+xcode_sdk: iphonesimulator11.0
 after_success:
   - bash <(curl -s https://codecov.io/bash)
