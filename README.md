@@ -22,5 +22,20 @@ The beauty of the algorithm really shines when you want to filter a list of loca
 
 Violá. A hash length 8 characters long defines a square roughly 38 meters per side.
 
+### Usage
+
+Geodesy is designed to be convenient to use with `CoreLocation`. There are a number of useful properties added in extensions on `CLLocation` and `CLLocationCoordinate2D`.
+```
+let location: CLLocation = manager.currentLocation
+let geohash = location.geohash(precision: 8) // An eight-character geohash of type String
+let neighbors = location.neighbors(precision: 8) // An array of nine eight-character strings representing the nine regions surrounding the original region.
+
+```
+
+### Neighbors?
+
+To handle cases where a location sits near the border of region, so that nearby locations potentially are in the next region over, it is easy to include the nine neighboring regions in addition to actual one.
+
+
 [1]:[https://en.m.wikipedia.org/wiki/Geohash]
 [2]:[http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.04.0057%3Aalphabetic+letter%3D*g%3Aentry+group%3D14%3Aentry%3Dgewdaisi%2Fa]
