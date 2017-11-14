@@ -11,7 +11,7 @@ class GeodesyTests: XCTestCase {
             let lng: Double
             let hash: String
             var precision: Int {
-                return hash.characters.count
+                return hash.count
             }
         }
 
@@ -102,7 +102,7 @@ class GeodesyTests: XCTestCase {
     func testNorth() {
         
         func runTest(center: String, neighbor: String) {
-            let precision = center.characters.count
+            let precision = center.count
             let region = Region(hash: center)!
             let north = region.north(region, precision)
             let hash = north.hash
@@ -133,7 +133,7 @@ class GeodesyTests: XCTestCase {
     func testSouth() {
 
         func runTest(center: String, neighbor: String) {
-            let precision = center.characters.count
+            let precision = center.count
             let region = Region(hash: center)!
             let south = region.south(region, precision)
             let hash = south.hash
@@ -163,7 +163,7 @@ class GeodesyTests: XCTestCase {
     func testEast() {
 
         func runTest(center: String, neighbor: String) {
-            let precision = center.characters.count
+            let precision = center.count
             let region = Region(hash: center)!
             let east = region.east(region, precision)
             let hash = east.hash
@@ -193,7 +193,7 @@ class GeodesyTests: XCTestCase {
     func testWest() {
 
         func runTest(center: String, neighbor: String) {
-            let precision = center.characters.count
+            let precision = center.count
             let region = Region(hash: center)!
             let west = region.west(region, precision)
             let hash = west.hash
@@ -223,7 +223,7 @@ class GeodesyTests: XCTestCase {
     func testNortheast() {
 
         func runTest(center: String, neighbor: String) {
-            let precision = center.characters.count
+            let precision = center.count
             let region = Region(hash: center)!
             let northeast = region.northeast(region, precision)
             let hash = northeast.hash
@@ -253,7 +253,7 @@ class GeodesyTests: XCTestCase {
     func testSoutheast() {
 
         func runTest(center: String, neighbor: String) {
-            let precision = center.characters.count
+            let precision = center.count
             let region = Region(hash: center)!
             let southeast = region.southeast(region, precision)
             let hash = southeast.hash
@@ -283,7 +283,7 @@ class GeodesyTests: XCTestCase {
     func testSouthwest() {
 
         func runTest(center: String, neighbor: String) {
-            let precision = center.characters.count
+            let precision = center.count
             let region = Region(hash: center)!
             let southwest = region.southwest(region, precision)
             let hash = southwest.hash
@@ -313,7 +313,7 @@ class GeodesyTests: XCTestCase {
     func testNorthwest() {
 
         func runTest(center: String, neighbor: String) {
-            let precision = center.characters.count
+            let precision = center.count
             let region = Region(hash: center)!
             let northwest = region.northwest(region, precision)
             let hash = northwest.hash

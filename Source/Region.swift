@@ -1,4 +1,4 @@
-private let charmap = Array("0123456789bcdefghjkmnpqrstuvwxyz".characters)
+private let charmap = Array("0123456789bcdefghjkmnpqrstuvwxyz")
 
 public struct Region {
     public let horizontal: Span
@@ -69,7 +69,7 @@ extension Region {
 
         var parity = Parity.lng
 
-        for char in hash.characters {
+        for char in hash {
             guard let bitmap = charmap.index(of: char) else { return nil }
             var mask = 0b10000
 
@@ -153,7 +153,7 @@ extension Region {
     }
 
     public func neighbors() -> [Region] {
-        let precision = hash.characters.count
+        let precision = hash.count
         return [
             north(self, precision),
             northeast(self, precision),
