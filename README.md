@@ -1,6 +1,5 @@
 # Geodesy
 ![](https://travis-ci.org/proxpero/Geodesy.svg?branch=master)
-[![codecov](https://codecov.io/gh/Geodesy/Geodesy/branch/master/graph/badge.svg)](https://codecov.io/gh/Geodesy)
 <a href="https://opensource.org/licenses/MIT">
     <img src="https://img.shields.io/badge/License-MIT-red.svg" alt="MIT">
 </a>
