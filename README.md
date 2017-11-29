@@ -27,13 +27,13 @@ Geodesy is designed to be convenient to use with `CoreLocation`. There are a num
 ```
 let location: CLLocation = manager.currentLocation
 let geohash = location.geohash(precision: 8) // An eight-character geohash of type String
-let neighbors = location.neighbors(precision: 8) // An array of nine eight-character strings representing the nine regions surrounding the original region.
+let neighbors = location.neighbors(precision: 8) // An array of nine eight-character strings representing the eight regions surrounding the original region.
 
 ```
 
 ### Neighbors?
 
-To handle cases where a location sits near the border of region, so that nearby locations potentially are in the next region over, it is easy to include the nine neighboring regions in addition to actual one.
+To handle cases where a location sits near the border of its enclosing region, so that nearby locations potentially are just in the next region over, it is easy to include the eight neighboring regions in addition to actual one.
 
 
 [1]:[https://en.m.wikipedia.org/wiki/Geohash]
