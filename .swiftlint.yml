@@ -1,1 +1,8 @@
-
+disabled_rules: # rule identifiers to exclude from running
+  - unused_optional_binding
+  - void_return
+  - opening_brace
+  - class_delegate_protocol
+  - syntactic_sugar
+  - type_name
+  - nesting
