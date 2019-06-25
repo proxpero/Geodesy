@@ -1,5 +1,5 @@
 language: swift
-osx_image: xcode9
+osx_image: xcode10.2
 xcode_project: Geodesy.xcodeproj
 xcode_scheme: "Geodesy iOS"
 xcode_sdk: iphonesimulator11.0
