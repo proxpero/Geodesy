@@ -32,6 +32,15 @@
         public func geohash(precision: Precision) -> String {
             return Region(coordinate: self, precision: precision.rawValue).hash
         }
+        
+        /// Geohash neighbors
+        public func neighbors(precision: Int = defaultPrecision) -> [String] {
+            return Region.init(coordinate: self, precision: precision).neighbors().map { $0.hash }
+        }
+        
+        public func neighbors(precision: Precision) -> [String] {
+            return neighbors(precision: precision.rawValue)
+        }
 
     }
 
