@@ -7,7 +7,7 @@
     <img src="https://cocoapod-badges.herokuapp.com/v/Geodesy/badge.png" alt="CocoaPods">
 </a>
 <a href="https://swift.org">
-    <img src="https://img.shields.io/badge/Swift-4-orange.svg" alt="Swift" />
+    <img src="https://img.shields.io/badge/Swift-5-green.svg" alt="Swift" />
 </a>
 
 ### A Swift implementation of the [geohash][1] algorithm.
