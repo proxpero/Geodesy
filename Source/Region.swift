@@ -70,7 +70,7 @@ extension Region {
         var parity = Parity.lng
 
         for char in hash {
-            guard let bitmap = charmap.index(of: char) else { return nil }
+            guard let bitmap = charmap.firstIndex(of: char) else { return nil }
             var mask = 0b10000
 
             func compare(span: Span) -> Span {
