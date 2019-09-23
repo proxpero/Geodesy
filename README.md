@@ -19,7 +19,7 @@ The beauty of the algorithm really shines when you want to filter a list of loca
     let currentGeohash = user.location.geohash()
     let nearby = db.hotspots.where("geohash", beginsWith: currentGeohash.prefix(8))
 
-Violá. A hash length 8 characters long defines a square roughly 38 meters per side.
+Voilà. A hash length 8 characters long defines a square roughly 38 meters per side.
 
 ### Usage
 
