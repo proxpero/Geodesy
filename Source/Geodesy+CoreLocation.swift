@@ -1,4 +1,4 @@
-#if os(OSX) || os(iOS)
+#if os(OSX) || os(iOS) || os(tvOS) || os(watchOS)
 
     import CoreLocation
 
